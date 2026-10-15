@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conecta Futuro — Feira de Oportunidades</title>
+
+  <!-- Projeto de exemplo do minicurso de HTML e CSS.
+       Objetivos trabalhados nesta página:
+       1) Papel do HTML e do CSS
+       2) Estrutura semântica: header, main, section, footer
+       3) Design system em CSS: cores, tipografia e espaçamento (ver style.css)
+       4) Interação com JavaScript: abrir/fechar o menu (ver script.js)
+  -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER: cabeçalho fixo com logo e menu de navegação -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo">Conecta<span>Futuro</span></a>
+
+      <!-- Botão "hambúrguer": controla a interação em JavaScript -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+
+          <!-- Item de menu com submenu: aparece ao passar o mouse (ver style.css) -->
+          <li class="tem-submenu">
+            <a href="#programacao">Programação</a>
+            <ul class="submenu">
+              <li><a href="#dia1">Dia 1 · 10/11</a></li>
+              <li><a href="#dia2">Dia 2 · 17/11</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#inscricao">Inscrição</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN: conteúdo principal da página -->
+  <main>
+
+    <!-- Banner de abertura -->
+    <section class="banner" id="inicio">
+      <div class="container banner-content">
+        <h1>Conecta Futuro</h1>
+        <p class="subtitle">Feira de Oportunidades, Tecnologia e Cidadania</p>
+        <p class="data">15 e 16 de novembro · Câmpus Palmas</p>
+        <a href="#inscricao" class="btn-primary">Fazer inscrição</a>
+      </div>
+    </section>
+
+    <!-- Seção com texto e tópicos -->
+    <section class="sobre" id="sobre">
+      <div class="container">
+        <h2>Sobre o evento</h2>
+        <p>
+          O Conecta Futuro reúne, em dois dias de atividades, oficinas, rodas de
+          conversa e apresentações voltadas à tecnologia, à cultura e à cidadania.
+          A proposta é aproximar os participantes de novas oportunidades de
+          aprendizado e de um primeiro contato com a área de tecnologia.
+        </p>
+
+        <ul class="lista-destaques">
+          <li>Oficinas práticas de curta duração</li>
+          <li>Rodas de conversa com convidados</li>
+          <li>Mostra de projetos desenvolvidos pelos participantes</li>
+          <li>Entrega de certificado de participação</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Programação: cards organizados em Flexbox -->
+    <section class="programacao" id="programacao">
+      <div class="container">
+        <h2>Programação</h2>
+
+        <div class="cards">
+          <article class="card" id="dia1">
+            <span class="card-dia">Dia 1 · 10/11</span>
+            <h3>Abertura e Oficina de Tecnologia</h3>
+            <p>Recepção, apresentação do evento e primeira oficina prática.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-dia">Dia 1 · 10/11</span>
+            <h3>Roda de conversa</h3>
+            <p>Bate-papo com convidados sobre trajetórias e oportunidades.</p>
+          </article>
+
+          <article class="card" id="dia2">
+            <span class="card-dia">Dia 2 · 17/11</span>
+            <h3>Oficina prática</h3>
+            <p>Continuação das atividades práticas em grupos.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-dia">Dia 2 · 17/11</span>
+            <h3>Mostra e encerramento</h3>
+            <p>Apresentação dos projetos e entrega dos certificados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulário de inscrição -->
+    <section class="inscricao" id="inscricao">
+      <div class="container">
+        <h2>Inscrição</h2>
+        <p>Preencha o formulário abaixo para garantir sua vaga.</p>
+
+        <form class="form-inscricao" id="formInscricao">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="interesse">Área de interesse</label>
+          <select id="interesse" name="interesse">
+            <option value="tecnologia">Tecnologia</option>
+            <option value="artes">Artes</option>
+            <option value="esporte">Esporte</option>
+          </select>
+
+          <button type="submit" class="btn-primary">Confirmar inscrição</button>
+
+          <p class="form-mensagem" id="formMensagem" hidden></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: rodapé com contato -->
+  <footer class="site-footer" id="contato">
+    <div class="container footer-inner">
+      <div>
+        <p class="logo">Conecta<span>Futuro</span></p>
+        <p>contato@conectafuturo.exemplo.br</p>
+      </div>
+      <div>
+        <p>&copy; <span id="ano"></span> Conecta Futuro. Projeto de extensão.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

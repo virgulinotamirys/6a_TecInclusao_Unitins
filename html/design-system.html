@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Conecta Futuro</title>
+
+  <!-- Importa o MESMO style.css do projeto: as cores, fontes e espaçamentos
+       mostrados aqui são os valores reais usados no site, não uma cópia.
+       Se você alterar as variáveis em style.css, esta página se atualiza junto. -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* Estilos exclusivos desta página de referência (não fazem parte do
+       design system do projeto — servem só para organizar a exibição) */
+    body {
+      background: var(--cor-fundo-alt);
+    }
+
+    .ds-header {
+      background: var(--cor-fundo);
+      border-bottom: 1px solid var(--cor-borda);
+      padding: var(--espaco-4) 0;
+    }
+
+    .ds-header .container > p {
+      color: var(--cor-texto-claro);
+      margin-top: var(--espaco-1);
+    }
+
+    .ds-section {
+      padding: var(--espaco-5) 0;
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .ds-section > .container > p.ds-intro {
+      color: var(--cor-texto-claro);
+      max-width: 640px;
+      margin-bottom: var(--espaco-3);
+    }
+
+    /* grade de amostras (cores, espaçamento, etc.) */
+    .ds-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--espaco-3);
+    }
+
+    .ds-swatch {
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      overflow: hidden;
+      width: 220px;
+    }
+
+    .ds-swatch-cor {
+      height: 80px;
+    }
+
+    .ds-swatch-texto {
+      padding: var(--espaco-2);
+    }
+
+    .ds-swatch-texto strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .ds-swatch-texto code {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--cor-texto-claro);
+      margin-top: 2px;
+    }
+
+    /* tipografia */
+    .ds-tipo-exemplo {
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: var(--espaco-3);
+      margin-bottom: var(--espaco-2);
+    }
+
+    .ds-tipo-exemplo .ds-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--cor-texto-claro);
+      font-family: Consolas, monospace;
+      margin-bottom: var(--espaco-1);
+    }
+
+    /* espaçamento */
+    .ds-espaco-linha {
+      display: flex;
+      align-items: center;
+      gap: var(--espaco-2);
+      margin-bottom: var(--espaco-1);
+    }
+
+    .ds-espaco-barra {
+      background: var(--cor-primaria);
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    .ds-espaco-label {
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      width: 220px;
+      color: var(--cor-texto);
+    }
+
+    /* componentes: isola exemplos para não herdar layout de página inteira */
+    .ds-componente-bloco {
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: var(--espaco-3);
+      margin-bottom: var(--espaco-3);
+    }
+
+    .ds-componente-bloco .ds-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--cor-texto-claro);
+      font-family: Consolas, monospace;
+      margin-bottom: var(--espaco-2);
+    }
+
+    /* cards de exemplo lado a lado, reaproveitando .cards/.card do projeto */
+    .ds-cards-demo {
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="ds-header">
+    <div class="container">
+      <h1 style="font-size: var(--tamanho-h1); margin-bottom: 4px;">Design System</h1>
+      <p>Guia de referência visual do projeto <strong>Conecta Futuro</strong> — cores, tipografia, espaçamento e componentes usados no minicurso de HTML e CSS.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- CORES -->
+    <section class="ds-section" id="cores">
+      <div class="container">
+        <h2>Paleta de cores</h2>
+        <p class="ds-intro">Definidas como variáveis CSS em <code>:root</code>, dentro de <code>style.css</code>. Usar sempre a variável (<code>var(--cor-primaria)</code>), nunca o valor hexadecimal direto, mantém a página inteira consistente.</p>
+
+        <div class="ds-grid">
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-primaria);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Primária</strong>
+              <code>--cor-primaria: #2563eb</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-primaria-escura);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Primária escura</strong>
+              <code>--cor-primaria-escura: #1e3a8a</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-secundaria);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Secundária (destaque)</strong>
+              <code>--cor-secundaria: #f59e0b</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-texto);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Texto</strong>
+              <code>--cor-texto: #1f2937</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-texto-claro);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Texto claro</strong>
+              <code>--cor-texto-claro: #6b7280</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-fundo); border-bottom: 1px solid var(--cor-borda);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Fundo</strong>
+              <code>--cor-fundo: #ffffff</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-fundo-alt);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Fundo alternativo</strong>
+              <code>--cor-fundo-alt: #f3f4f6</code>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch-cor" style="background: var(--cor-borda);"></div>
+            <div class="ds-swatch-texto">
+              <strong>Borda</strong>
+              <code>--cor-borda: #e5e7eb</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFIA -->
+    <section class="ds-section" id="tipografia">
+      <div class="container">
+        <h2>Tipografia</h2>
+        <p class="ds-intro">Uma única família de fonte para toda a página, com uma escala pequena de tamanhos — o suficiente para diferenciar títulos e texto, sem criar inconsistência.</p>
+
+        <div class="ds-tipo-exemplo">
+          <span class="ds-label">--fonte-base: "Segoe UI", Roboto, Arial, sans-serif</span>
+          <p style="margin:0;">Esta é a fonte usada em toda a página, do título ao rodapé.</p>
+        </div>
+
+        <div class="ds-tipo-exemplo">
+          <span class="ds-label">h1 · --tamanho-h1: 2.5rem (40px)</span>
+          <p style="font-size: var(--tamanho-h1); font-weight: 700; margin:0;">Título principal</p>
+        </div>
+
+        <div class="ds-tipo-exemplo">
+          <span class="ds-label">h2 · --tamanho-h2: 1.75rem (28px)</span>
+          <p style="font-size: var(--tamanho-h2); font-weight: 700; margin:0;">Título de seção</p>
+        </div>
+
+        <div class="ds-tipo-exemplo">
+          <span class="ds-label">h3 · --tamanho-h3: 1.1rem (17,6px)</span>
+          <p style="font-size: var(--tamanho-h3); font-weight: 700; margin:0;">Subtítulo / título de card</p>
+        </div>
+
+        <div class="ds-tipo-exemplo">
+          <span class="ds-label">texto · --tamanho-texto: 1rem (16px)</span>
+          <p style="font-size: var(--tamanho-texto); margin:0;">Texto normal de parágrafo, usado no corpo da página.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPAÇAMENTO -->
+    <section class="ds-section" id="espacamento">
+      <div class="container">
+        <h2>Espaçamento</h2>
+        <p class="ds-intro">Escala baseada em múltiplos de 8px. Usar sempre um valor da escala (em vez de números soltos, como <code>13px</code> ou <code>22px</code>) mantém o ritmo visual da página.</p>
+
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-1: 0.5rem (8px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-1);"></div>
+        </div>
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-2: 1rem (16px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-2);"></div>
+        </div>
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-3: 1.5rem (24px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-3);"></div>
+        </div>
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-4: 2rem (32px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-4);"></div>
+        </div>
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-5: 3rem (48px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-5);"></div>
+        </div>
+        <div class="ds-espaco-linha">
+          <span class="ds-espaco-label">--espaco-6: 4rem (64px)</span>
+          <div class="ds-espaco-barra" style="width: var(--espaco-6);"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTROS TOKENS -->
+    <section class="ds-section" id="outros">
+      <div class="container">
+        <h2>Outros valores</h2>
+        <p class="ds-intro">Pequenos ajustes usados em conjunto com cores e espaçamento.</p>
+
+        <div class="ds-grid">
+          <div class="ds-swatch" style="width: 260px;">
+            <div class="ds-swatch-texto">
+              <strong>Raio de borda</strong>
+              <code>--raio-borda: 8px</code>
+              <div style="margin-top: var(--espaco-1); width: 100%; height: 40px; background: var(--cor-primaria); border-radius: var(--raio-borda);"></div>
+            </div>
+          </div>
+
+          <div class="ds-swatch" style="width: 260px;">
+            <div class="ds-swatch-texto">
+              <strong>Largura máxima do conteúdo</strong>
+              <code>--largura-maxima: 1100px</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTES -->
+    <section class="ds-section" id="componentes" style="border-bottom: none;">
+      <div class="container">
+        <h2>Componentes</h2>
+        <p class="ds-intro">Elementos reais do projeto, renderizados com as classes de <code>style.css</code> — exatamente como aparecem no site.</p>
+
+        <div class="ds-componente-bloco">
+          <span class="ds-label">.btn-primary</span>
+          <a href="#" class="btn-primary" onclick="return false;">Fazer inscrição</a>
+        </div>
+
+        <div class="ds-componente-bloco">
+          <span class="ds-label">.card (dentro de .cards)</span>
+          <div class="cards ds-cards-demo">
+            <article class="card">
+              <span class="card-dia">Dia 1 · 10/11</span>
+              <h3>Título do card</h3>
+              <p>Texto de exemplo descrevendo a atividade.</p>
+            </article>
+            <article class="card">
+              <span class="card-dia">Dia 2 · 17/11</span>
+              <h3>Outro card</h3>
+              <p>Os cards usam Flexbox e se ajustam à largura disponível.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="ds-componente-bloco">
+          <span class="ds-label">.form-inscricao (campos de formulário)</span>
+          <form class="form-inscricao" style="margin-top: 0;">
+            <label for="ds-nome">Nome completo</label>
+            <input type="text" id="ds-nome" placeholder="Seu nome" />
+
+            <label for="ds-interesse">Área de interesse</label>
+            <select id="ds-interesse">
+              <option>Tecnologia</option>
+              <option>Artes</option>
+            </select>
+          </form>
+        </div>
+
+        <div class="ds-componente-bloco">
+          <span class="ds-label">Link de navegação (.main-nav a)</span>
+          <nav class="main-nav" style="display: block;">
+            <ul style="display: flex; gap: var(--espaco-3);">
+              <li><a href="#">Link do menu</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+/* ============================================================
+   DESIGN SYSTEM
+   Tudo que o restante do CSS usa (cores, fontes, espaçamentos)
+   está definido aqui, em variáveis. Para mudar o "visual" da
+   página inteira, basta alterar estes valores.
+   ============================================================ */
+:root {
+  /* Paleta de cores */
+  --cor-primaria: #2563eb;
+  --cor-primaria-escura: #1e3a8a;
+  --cor-secundaria: #f59e0b;
+  --cor-texto: #1f2937;
+  --cor-texto-claro: #6b7280;
+  --cor-fundo: #ffffff;
+  --cor-fundo-alt: #f3f4f6;
+  --cor-borda: #e5e7eb;
+
+  /* Tipografia */
+  --fonte-base: "Segoe UI", Roboto, Arial, sans-serif;
+  --tamanho-h1: 2.5rem;
+  --tamanho-h2: 1.75rem;
+  --tamanho-h3: 1.1rem;
+  --tamanho-texto: 1rem;
+
+  /* Espaçamento (escala de 8px) */
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2rem;
+  --espaco-5: 3rem;
+  --espaco-6: 4rem;
+
+  /* Outros */
+  --raio-borda: 8px;
+  --largura-maxima: 1100px;
+}
+
+/* ============================================================
+   RESET BÁSICO
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-base);
+  font-size: var(--tamanho-texto);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 var(--espaco-3);
+}
+
+/* ============================================================
+   HEADER + MENU (com interação em JavaScript)
+   ============================================================ */
+.site-header {
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--espaco-2);
+  padding-bottom: var(--espaco-2);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.logo span {
+  color: var(--cor-primaria);
+}
+
+/* Menu de navegação: em Flexbox para alinhar os itens lado a lado.
+   Usamos ">" (filho direto) para esta regra não "vazar" para dentro
+   do <ul class="submenu">, que precisa ficar escondido por padrão. */
+.main-nav > ul {
+  display: flex;
+  gap: var(--espaco-4);
+}
+
+.main-nav a {
+  color: var(--cor-texto);
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  color: var(--cor-primaria);
+}
+
+/* Botão "hambúrguer" — escondido no desktop, aparece no celular */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--cor-texto);
+}
+
+/* ============================================================
+   SUBMENU — aparece ao passar o mouse em cima de "Programação"
+   ============================================================ */
+.tem-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+}
+
+/* só precisa de :hover: nenhum JavaScript é necessário aqui */
+.tem-submenu:hover .submenu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  padding: var(--espaco-1) 0;
+}
+
+.submenu a {
+  display: block;
+  padding: var(--espaco-1) var(--espaco-2);
+}
+
+.submenu a:hover {
+  background: var(--cor-fundo-alt);
+}
+
+/* ============================================================
+   BANNER
+   ============================================================ */
+.banner {
+  /* banner.svg é a imagem do banner; o gradiente fica por baixo como base
+     de cor (e como alternativa, caso o arquivo de imagem não carregue) */
+  background-image: url("../imgs/banner.svg"), linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-escura));
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: var(--espaco-6) var(--espaco-3);
+}
+
+.banner h1 {
+  font-size: var(--tamanho-h1);
+  margin-bottom: var(--espaco-1);
+}
+
+.banner .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: var(--espaco-1);
+}
+
+.banner .data {
+  color: var(--cor-secundaria);
+  font-weight: 600;
+  margin-bottom: var(--espaco-3);
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto);
+  font-weight: 700;
+  padding: var(--espaco-2) var(--espaco-4);
+  border: none;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* ============================================================
+   SEÇÕES GERAIS
+   ============================================================ */
+main section {
+  padding: var(--espaco-6) 0;
+}
+
+main section:nth-of-type(even) {
+  background: var(--cor-fundo-alt);
+}
+
+h2 {
+  font-size: var(--tamanho-h2);
+  margin-bottom: var(--espaco-3);
+}
+
+.lista-destaques {
+  margin-top: var(--espaco-3);
+}
+
+.lista-destaques li {
+  padding-left: var(--espaco-3);
+  position: relative;
+  margin-bottom: var(--espaco-1);
+}
+
+.lista-destaques li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+
+/* ============================================================
+   PROGRAMAÇÃO — cards em Flexbox
+   ============================================================ */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+}
+
+.card {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-3);
+  flex: 1 1 220px;
+}
+
+.card-dia {
+  display: inline-block;
+  background: var(--cor-fundo-alt);
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px var(--espaco-1);
+  border-radius: 4px;
+  margin-bottom: var(--espaco-1);
+}
+
+.card h3 {
+  font-size: var(--tamanho-h3);
+  margin-bottom: var(--espaco-1);
+}
+
+.card p {
+  color: var(--cor-texto-claro);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   FORMULÁRIO DE INSCRIÇÃO
+   ============================================================ */
+.form-inscricao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  max-width: 420px;
+  margin-top: var(--espaco-3);
+}
+
+.form-inscricao label {
+  font-weight: 600;
+  margin-top: var(--espaco-2);
+}
+
+.form-inscricao input,
+.form-inscricao select {
+  padding: var(--espaco-1);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  font-size: var(--tamanho-texto);
+  font-family: inherit;
+}
+
+.form-inscricao .btn-primary {
+  margin-top: var(--espaco-3);
+}
+
+.form-mensagem {
+  margin-top: var(--espaco-2);
+  color: var(--cor-primaria-escura);
+  font-weight: 600;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--cor-texto);
+  color: #fff;
+  padding: var(--espaco-4) 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+}
+
+.site-footer .logo {
+  color: #fff;
+}
+
+.site-footer p {
+  color: #d1d5db;
+}
+
+/* ============================================================
+   RESPONSIVO — menu vira "hambúrguer" em telas pequenas
+   ============================================================ */
+@media (max-width: 720px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+  }
+
+  /* Classe adicionada/removida pelo script.js */
+  .main-nav.aberto {
+    display: block;
+  }
+
+  .main-nav > ul {
+    flex-direction: column;
+    gap: var(--espaco-2);
+    padding-bottom: var(--espaco-2);
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  /* No celular o submenu entra na lista normal, em vez de flutuar */
+  .tem-submenu:hover .submenu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding-left: var(--espaco-3);
+  }
+}
